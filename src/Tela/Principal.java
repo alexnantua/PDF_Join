@@ -29,6 +29,7 @@ import com.itextpdf.text.pdf.PdfStamper;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -386,7 +387,7 @@ public class Principal extends javax.swing.JFrame {
             //System.out.println(user);
 
             if (saida_Text.getText().isEmpty()) {
-                saida_Text.setText("C:/Users/"+user+"/Documents/");
+                saida_Text.setText("C:/Users/" + user + "/Documents/");
             }
 
             List<InputStream> pdfs = new ArrayList<InputStream>();
@@ -423,9 +424,30 @@ public class Principal extends javax.swing.JFrame {
 
             OutputStream output = new FileOutputStream(saida_Text.getText() + "-join.pdf");
 
+            JOptionPane.showMessageDialog(null, "PDF gerado com sucesso em " + saida_Text.getText());
+
+            try {
+                Runtime.getRuntime().exec("explorer " + saida_Text.getText());
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+
+            pdf1_Text.setText("");
+            pdf2_Text.setText("");
+            pdf3_Text.setText("");
+            pdf4_Text.setText("");
+            pdf5_Text.setText("");
+            pdf6_Text.setText("");
+            pdf7_Text.setText("");
+            pdf8_Text.setText("");
+            pdf9_Text.setText("");
+            pdf10_Text.setText("");
+            saida_Text.setText("");
+
             concatPDFs.concatPDFs(pdfs, output, true);
+
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_JUNTARActionPerformed
 
