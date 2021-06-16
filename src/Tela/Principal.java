@@ -386,12 +386,6 @@ public class Principal extends javax.swing.JFrame {
             String user = System.getProperty("user.name");
             String nameFile = "-join.pdf";
 
-            if (saida_Text.getText().isEmpty()) {
-                saida_Text.setText("C:/Users/" + user + "/Documents/"+nameFile);
-            }else{
-                saida_Text.setText(saida_Text.getText()+nameFile);
-            }
-
             List<InputStream> pdfs = new ArrayList<InputStream>();
             if (!pdf1_Text.getText().isEmpty()) {
                 pdfs.add(new FileInputStream(pdf1_Text.getText()));
@@ -424,35 +418,52 @@ public class Principal extends javax.swing.JFrame {
                 pdfs.add(new FileInputStream(pdf10_Text.getText()));
             }
 
-            OutputStream output = new FileOutputStream(saida_Text.getText() + nameFile);
+            if (pdf1_Text.getText().isEmpty() && pdf2_Text.getText().isEmpty() && pdf3_Text.getText().isEmpty()
+                    && pdf4_Text.getText().isEmpty() && pdf5_Text.getText().isEmpty() && pdf6_Text.getText().isEmpty()
+                    && pdf7_Text.getText().isEmpty() && pdf8_Text.getText().isEmpty() && pdf9_Text.getText().isEmpty()
+                    && pdf10_Text.getText().isEmpty()) {
 
-            JOptionPane.showMessageDialog(null, "PDF gerado com sucesso em " + saida_Text.getText());
-            
-            //System.out.println(saida_Text.getText());
+                JOptionPane.showMessageDialog(null, "Nenhum PDF adicionado.");
 
-            try {
-                Runtime.getRuntime().exec("explorer " + saida_Text.getText());
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, ex);
+            } else {
+
+                if (saida_Text.getText().isEmpty()) {
+                    saida_Text.setText("C:/Users/" + user + "/Documents/" + nameFile);
+                } else {
+                    saida_Text.setText(saida_Text.getText() + nameFile);
+                }
+
+                OutputStream output = new FileOutputStream(saida_Text.getText());
+
+                JOptionPane.showMessageDialog(null, "PDF gerado com sucesso em " + saida_Text.getText());
+
+                System.out.println(saida_Text.getText());
+
+                try {
+                    java.awt.Desktop.getDesktop().open(new File(saida_Text.getText()));
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+
+                pdf1_Text.setText("");
+                pdf2_Text.setText("");
+                pdf3_Text.setText("");
+                pdf4_Text.setText("");
+                pdf5_Text.setText("");
+                pdf6_Text.setText("");
+                pdf7_Text.setText("");
+                pdf8_Text.setText("");
+                pdf9_Text.setText("");
+                pdf10_Text.setText("");
+                saida_Text.setText("");
+
+                concatPDFs.concatPDFs(pdfs, output, true);
             }
-
-            pdf1_Text.setText("");
-            pdf2_Text.setText("");
-            pdf3_Text.setText("");
-            pdf4_Text.setText("");
-            pdf5_Text.setText("");
-            pdf6_Text.setText("");
-            pdf7_Text.setText("");
-            pdf8_Text.setText("");
-            pdf9_Text.setText("");
-            pdf10_Text.setText("");
-            saida_Text.setText("");
-
-            concatPDFs.concatPDFs(pdfs, output, true);
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+
+
     }//GEN-LAST:event_JUNTARActionPerformed
 
     private void Procurar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar2ActionPerformed
