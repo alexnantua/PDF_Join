@@ -384,10 +384,12 @@ public class Principal extends javax.swing.JFrame {
     private void JUNTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JUNTARActionPerformed
         try {
             String user = System.getProperty("user.name");
-            //System.out.println(user);
+            String nameFile = "-join.pdf";
 
             if (saida_Text.getText().isEmpty()) {
-                saida_Text.setText("C:/Users/" + user + "/Documents/");
+                saida_Text.setText("C:/Users/" + user + "/Documents/"+nameFile);
+            }else{
+                saida_Text.setText(saida_Text.getText()+nameFile);
             }
 
             List<InputStream> pdfs = new ArrayList<InputStream>();
@@ -422,9 +424,11 @@ public class Principal extends javax.swing.JFrame {
                 pdfs.add(new FileInputStream(pdf10_Text.getText()));
             }
 
-            OutputStream output = new FileOutputStream(saida_Text.getText() + "-join.pdf");
+            OutputStream output = new FileOutputStream(saida_Text.getText() + nameFile);
 
             JOptionPane.showMessageDialog(null, "PDF gerado com sucesso em " + saida_Text.getText());
+            
+            //System.out.println(saida_Text.getText());
 
             try {
                 Runtime.getRuntime().exec("explorer " + saida_Text.getText());
