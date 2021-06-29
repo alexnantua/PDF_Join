@@ -3,7 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="PDF JOIN - V.1.0 - By. Alexandre N&#xe2;ntua"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -24,97 +23,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="478" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="pdf10" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pdf10_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Procurar10" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pdf1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pdf9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf1_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf2_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf3_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf4_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf5_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar5" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf6_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar6" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf7_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar7" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf8_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar8" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pdf9_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Procurar9" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="saida" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="saida_Text" min="-2" pref="338" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Procurar_Saida" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="JUNTAR" min="-2" pref="94" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator2" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -122,289 +40,40 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf1_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf2_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf3_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar3" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf4_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar4" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf5_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar5" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf6_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar6" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf7_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar7" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf8_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar8" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf9_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar9" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pdf10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pdf10_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar10" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="saida" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="saida_Text" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JUNTAR" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Procurar_Saida" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="pdf1">
+    <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 1"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="O QUE VOCE DESEJA FAZER?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="pdf1_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="JUNTAR">
+    <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="DIVIDIR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
         <Property name="text" type="java.lang.String" value="JUNTAR"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JUNTARActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 2"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf2_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar2ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 3"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf3_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar3ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 4"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf4_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar4ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 5"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf5_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar5ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 6"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf6_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar6ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 7"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf7_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar7ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 8"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf8_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar8ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 9"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf9_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar9ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="pdf10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PDF 10"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="pdf10_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar10ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="saida">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="SA&#xcd;DA"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="saida_Text">
-    </Component>
-    <Component class="javax.swing.JButton" name="Procurar_Saida">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="PROCURAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Procurar_SaidaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Arquivos de entrada"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator1">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Sa&#xed;da"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
   </SubComponents>
 </Form>
