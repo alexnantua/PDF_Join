@@ -5,17 +5,14 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Level;
@@ -58,8 +55,10 @@ public class Split extends javax.swing.JFrame {
         saida_Text = new javax.swing.JTextField();
         Procurar_Saida = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        LIMPAR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("SPLIT - PDF EDITOR - V.1.0 - By. Alexandre Nântua");
 
         pdf1.setText("PDF");
 
@@ -90,6 +89,13 @@ public class Split extends javax.swing.JFrame {
             }
         });
 
+        LIMPAR.setText("LIMPAR");
+        LIMPAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LIMPARActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,7 +104,8 @@ public class Split extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(LIMPAR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(DIVIDIR))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
@@ -151,7 +158,9 @@ public class Split extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(DIVIDIR)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DIVIDIR)
+                    .addComponent(LIMPAR))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -160,66 +169,85 @@ public class Split extends javax.swing.JFrame {
 
     private void Procurar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar1ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf1_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf1_Text.setText(arquivo.getPath());
+            
+        } else {
+            pdf1_Text.setText("");
         }
     }//GEN-LAST:event_Procurar1ActionPerformed
 
     private void DIVIDIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DIVIDIRActionPerformed
-
+        
         String user = System.getProperty("user.name");
         String nameFile = "-split.pdf";
         OutputStream output = null;
         String saidaEmpty = "C:/Users/" + user + "/Documents/" + nameFile;
-
-        if (Integer.parseInt(PagInicial.getText()) > Integer.parseInt(PagFinal.getText())) {
-            JOptionPane.showMessageDialog(null, "Números invertidos");
+        
+        if (pdf1_Text.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nenhum arquivo adicionado.");
         } else {
-
-            try {
-                if (pdf1_Text.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Nenhum arquivo foi selecionado.");
-
+            
+            if (PagInicial.getText().isEmpty() || PagFinal.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Número de páginas não inserido.");
+            } else {
+                
+                if (Integer.parseInt(PagInicial.getText()) > Integer.parseInt(PagFinal.getText())) {
+                    JOptionPane.showMessageDialog(null, "Números de páginas invertidos.");
                 } else {
-                    if (saida_Text.getText().isEmpty()) {
-                        saida_Text.setText(saidaEmpty);
-                    } else {
-                        saida.setText(saida_Text.getText() + nameFile);
+                    
+                    try {
+                        
+                        if (pdf1_Text.getText().isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "Nenhum arquivo foi selecionado.");
+                        } else {
+                            if (saida_Text.getText().isEmpty()) {
+                                saida_Text.setText(saidaEmpty);
+                            } else {
+                                saida_Text.setText(saida_Text.getText() + nameFile);
+                            }
+                        }
+                        
+                        splitPdfFile(new FileInputStream(pdf1_Text.getText()), new FileOutputStream(saida_Text.getText()), Integer.parseInt(PagInicial.getText()), Integer.parseInt(PagFinal.getText()));
+                        
+                        JOptionPane.showMessageDialog(null, "PDF gerado com sucesso em " + saida_Text.getText());
+                        java.awt.Desktop.getDesktop().open(new File(saida_Text.getText()));
+                        
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(Split.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (Exception ex) {
+                        Logger.getLogger(Split.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                splitPdfFile(new FileInputStream(pdf1_Text.getText()), new FileOutputStream(saida_Text.getText()), Integer.parseInt(PagInicial.getText()), Integer.parseInt(PagFinal.getText()));
-
-                JOptionPane.showMessageDialog(null, "PDF gerado com sucesso em " + saida_Text.getText());
-                java.awt.Desktop.getDesktop().open(new File(saida_Text.getText()));
-                
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Split.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(Split.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
-
     }//GEN-LAST:event_DIVIDIRActionPerformed
     private void Procurar_SaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar_SaidaActionPerformed
-        JFileChooser file = new JFileChooser();
-        file.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        int i = file.showSaveDialog(null);
-
-        if (i == 1) {
-            saida_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             saida_Text.setText(arquivo.getPath());
+            
+        } else {
+            saida_Text.setText("");
         }
     }//GEN-LAST:event_Procurar_SaidaActionPerformed
+
+    private void LIMPARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LIMPARActionPerformed
+        pdf1_Text.setText("");
+        saida_Text.setText("");
+        PagInicial.setText("");
+        PagFinal.setText("");
+    }//GEN-LAST:event_LIMPARActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,6 +286,7 @@ public class Split extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DIVIDIR;
+    private javax.swing.JButton LIMPAR;
     private javax.swing.JTextField PagFinal;
     private javax.swing.JTextField PagInicial;
     private javax.swing.JButton Procurar1;
@@ -285,17 +314,15 @@ public class Split extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Números invertidos");
         } else {
             // Create writer for the outputStream
-            PdfWriter writer
-                    = PdfWriter.getInstance(document, outputStream);
+            PdfWriter writer = PdfWriter.getInstance(document, outputStream);
 
             //Open document
             document.open();
 
             //Contain the pdf data.
-            PdfContentByte pdfContentByte
-                    = writer.getDirectContent();
+            PdfContentByte pdfContentByte = writer.getDirectContent();
             PdfImportedPage page;
-
+            
             while (startPage <= endPage) {
                 document.newPage();
                 page = writer.getImportedPage(pdfReader, startPage);
@@ -309,8 +336,24 @@ public class Split extends javax.swing.JFrame {
             outputStream.close();
         }
     }
-
+    
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pdf.png")));
+    }
+    
+    private static String lastDir = null;
+    
+    public static JFileChooser getFileChooser() {
+        if (lastDir != null) {
+            JFileChooser fc = new JFileChooser(lastDir);
+            return fc;
+        } else {
+            JFileChooser fc = new JFileChooser();
+            return fc;
+        }
+    }
+    
+    public static void setLastDir(File file) {
+        lastDir = file.getParent();
     }
 }

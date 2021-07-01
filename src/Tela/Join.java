@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.JFileChooser;
 import cod.concatPDFs;
 import java.awt.Toolkit;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -78,7 +79,7 @@ public class Join extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("PDF JOIN - V.1.0 - By. Alexandre Nântua");
+        setTitle("JOIN - PDF EDITOR - V.1.0 - By. Alexandre Nântua");
 
         pdf1.setText("PDF 1");
 
@@ -342,7 +343,6 @@ public class Join extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saida)
                     .addComponent(saida_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,15 +356,16 @@ public class Join extends javax.swing.JFrame {
 
     private void Procurar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar1ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf1_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf1_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf1_Text.setText("");
         }
     }//GEN-LAST:event_Procurar1ActionPerformed
     private void JUNTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JUNTARActionPerformed
@@ -420,17 +421,24 @@ public class Join extends javax.swing.JFrame {
                 }
 
                 OutputStream output = new FileOutputStream(saida_Text.getText());
-
+                
                 JOptionPane.showMessageDialog(null, "PDF gerado com sucesso em " + saida_Text.getText());
 
-                //System.out.println(saida_Text.getText());
+               
+                
+                PDF_Viewer janela = new PDF_Viewer();//Crio um formulário chamado janela, com base no formulário que eu quero abrir
+                //Seto os JTextFields que eu tenho no segundo formulário com os valores de minhas variáveis
+                janela.pdf1_Text.setText(this.saida_Text.getText());
+                janela.setVisible(true);
+                TimeUnit.SECONDS.sleep(5);
+                janela.VER.doClick();
+                
 
-                try {
-                    java.awt.Desktop.getDesktop().open(new File(saida_Text.getText()));
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null, ex);
-                }
-
+//                try {
+//                    java.awt.Desktop.getDesktop().open(new File(saida_Text.getText()));
+//                } catch (IOException ex) {
+//                    JOptionPane.showMessageDialog(null, ex);
+//                }
                 pdf1_Text.setText("");
                 pdf2_Text.setText("");
                 pdf3_Text.setText("");
@@ -454,131 +462,151 @@ public class Join extends javax.swing.JFrame {
 
     private void Procurar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar2ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf2_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf2_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf2_Text.setText("");
         }
     }//GEN-LAST:event_Procurar2ActionPerformed
 
     private void Procurar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar3ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf3_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf3_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf3_Text.setText("");
         }
     }//GEN-LAST:event_Procurar3ActionPerformed
 
     private void Procurar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar4ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf4_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf4_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf4_Text.setText("");
         }
     }//GEN-LAST:event_Procurar4ActionPerformed
 
     private void Procurar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar5ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf5_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf5_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf5_Text.setText("");
         }
     }//GEN-LAST:event_Procurar5ActionPerformed
 
     private void Procurar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar6ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf6_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf6_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf6_Text.setText("");
         }
     }//GEN-LAST:event_Procurar6ActionPerformed
 
     private void Procurar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar7ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf7_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf7_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf7_Text.setText("");
         }
     }//GEN-LAST:event_Procurar7ActionPerformed
 
     private void Procurar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar8ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf8_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf8_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf8_Text.setText("");
         }
     }//GEN-LAST:event_Procurar8ActionPerformed
 
     private void Procurar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar9ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf9_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf9_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf9_Text.setText("");
         }
     }//GEN-LAST:event_Procurar9ActionPerformed
 
     private void Procurar10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar10ActionPerformed
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF", "pdf");
-        JFileChooser file = new JFileChooser();
-        file.setFileFilter(filter);
-        int i = file.showOpenDialog(null);
-        if (i == 1) {
-            pdf10_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        JFileChooser fc = getFileChooser();
+        fc.setFileFilter(filter);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             pdf10_Text.setText(arquivo.getPath());
+
+        } else {
+            pdf10_Text.setText("");
         }
     }//GEN-LAST:event_Procurar10ActionPerformed
 
     private void Procurar_SaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Procurar_SaidaActionPerformed
-        JFileChooser file = new JFileChooser();
-        file.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        int i = file.showSaveDialog(null);
+        JFileChooser fc = getFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        if (i == 1) {
-            saida_Text.setText("");
-        } else {
-            File arquivo = file.getSelectedFile();
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            setLastDir(fc.getSelectedFile());
+            File arquivo = fc.getSelectedFile();
             saida_Text.setText(arquivo.getPath());
+
+        } else {
+            saida_Text.setText("");
         }
     }//GEN-LAST:event_Procurar_SaidaActionPerformed
 
@@ -660,5 +688,20 @@ public class Join extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pdf.png")));
+    }
+    private static String lastDir = null;
+
+    public static JFileChooser getFileChooser() {
+        if (lastDir != null) {
+            JFileChooser fc = new JFileChooser(lastDir);
+            return fc;
+        } else {
+            JFileChooser fc = new JFileChooser();
+            return fc;
+        }
+    }
+
+    public static void setLastDir(File file) {
+        lastDir = file.getParent();
     }
 }
