@@ -426,7 +426,7 @@ public class Join extends javax.swing.JFrame {
 
                
                 
-                PDF_Viewer janela = new PDF_Viewer();//Crio um formulário chamado janela, com base no formulário que eu quero abrir
+                Split_PDF_Viewer janela = new Split_PDF_Viewer();//Crio um formulário chamado janela, com base no formulário que eu quero abrir
                 //Seto os JTextFields que eu tenho no segundo formulário com os valores de minhas variáveis
                 janela.pdf1_Text.setText(this.saida_Text.getText());
                 janela.setVisible(true);

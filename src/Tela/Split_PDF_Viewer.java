@@ -37,12 +37,12 @@ import org.icepdf.ri.common.SwingViewBuilder;
  *
  * @author alexnantua
  */
-public class PDF_Viewer extends javax.swing.JFrame {
+public class Split_PDF_Viewer extends javax.swing.JFrame {
 
     /**
      * Creates new form PDF_Viewer
      */
-    public PDF_Viewer() {
+    public Split_PDF_Viewer() {
         initComponents();
         setLocationRelativeTo(null);
         setIcon();
@@ -72,6 +72,7 @@ public class PDF_Viewer extends javax.swing.JFrame {
         PagInicial_2 = new javax.swing.JTextField();
         PagFinal_2 = new javax.swing.JTextField();
         VER = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PDF EDITOR - V.1.0 - By. Alexandre Nântua");
@@ -103,12 +104,31 @@ public class PDF_Viewer extends javax.swing.JFrame {
 
         jLabel2.setText("Intervalo - Página Final:");
 
+        PagFinal_1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PagFinal_1FocusLost(evt);
+            }
+        });
+
         saida.setText("SAÍDA");
+
+        PagInicial_2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                PagInicial_2FocusLost(evt);
+            }
+        });
 
         VER.setText("VER");
         VER.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VERActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("LIMPAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -119,29 +139,8 @@ public class PDF_Viewer extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(saida)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(saida_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Procurar_Saida))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(pdf1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(pdf1_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Procurar1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(VER)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PagInicial_1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,7 +154,27 @@ public class PDF_Viewer extends javax.swing.JFrame {
                         .addComponent(PagFinal_2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(split)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(pdf1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pdf1_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Procurar1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(VER))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(saida)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(saida_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Procurar_Saida)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,20 +187,22 @@ public class PDF_Viewer extends javax.swing.JFrame {
                     .addComponent(VER))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(PagInicial_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(PagFinal_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(split)
-                    .addComponent(PagInicial_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PagFinal_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saida)
                     .addComponent(saida_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Procurar_Saida))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(PagInicial_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
+                        .addComponent(PagFinal_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(split)
+                        .addComponent(PagInicial_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PagFinal_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -225,15 +246,14 @@ public class PDF_Viewer extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Página final não inserida.");
                 } else {
 
-//                    if (Integer.parseInt(PagInicial_1.getText()) > Integer.parseInt(PagInicial_2.getText())) {
-//                        JOptionPane.showMessageDialog(null, "Verifique o intervalo selecionado.");
-//                    } else {
-//                        if (Integer.parseInt(PagFinal_1.getText()) > Integer.parseInt(PagFinal_2.getText())) {
-//                            JOptionPane.showMessageDialog(null, "Verifique o intervalo selecionado.");
-//                        } else {
-//                            if (Integer.parseInt(PagInicial_1.getText()) > Integer.parseInt(PagFinal_2.getText())) {
-//                                JOptionPane.showMessageDialog(null, "Verifique o intervalo selecionado.");
-//                            } else {
+                    if (!PagFinal_1.getText().isEmpty()) {
+                        if (Integer.parseInt(PagFinal_2.getText()) < Integer.parseInt(PagFinal_1.getText())) {
+                            JOptionPane.showMessageDialog(null, "Verifique o intervalo selecionado.");
+                            PagFinal_2.setText("");
+                            PagFinal_2.requestFocus();
+                        }
+                    }
+
                     try {
                         PdfReader reader = new PdfReader(pdf1_Text.getText());
 
@@ -281,9 +301,6 @@ public class PDF_Viewer extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, ex);
                     }
                 }
-//                        }
-//                    }
-//                }
             }
         }
     }//GEN-LAST:event_splitActionPerformed
@@ -323,6 +340,44 @@ public class PDF_Viewer extends javax.swing.JFrame {
         openpdf(pdf1_Text.getText());
     }//GEN-LAST:event_VERActionPerformed
 
+    private void PagInicial_2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PagInicial_2FocusLost
+        if (!PagInicial_1.getText().isEmpty()) {
+            if (Integer.parseInt(PagInicial_1.getText()) > Integer.parseInt(PagInicial_2.getText())) {
+                JOptionPane.showMessageDialog(null, "Verifique o intervalo selecionado.");
+                PagInicial_2.setText("");
+                PagInicial_2.requestFocus();
+            }
+        } else if (PagInicial_1.getText().isEmpty() && !PagInicial_2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Primeiro campo de intervalo sem dados.");
+        }
+    }//GEN-LAST:event_PagInicial_2FocusLost
+
+    private void PagFinal_1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PagFinal_1FocusLost
+        if (!PagInicial_2.getText().isEmpty()) {
+            if (Integer.parseInt(PagFinal_1.getText()) < Integer.parseInt(PagInicial_2.getText())
+                    || !PagInicial_1.getText().isEmpty() && PagInicial_2.getText().isEmpty()
+                    || PagInicial_1.getText().isEmpty() && !PagInicial_2.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Verifique o intervalo selecionado.");
+                PagFinal_1.setText("");
+                PagFinal_1.requestFocus();
+            }
+        } else if (PagInicial_1.getText().isEmpty() && PagInicial_2.getText().isEmpty() && !PagFinal_1.getText().isEmpty()
+                || !PagInicial_1.getText().isEmpty() && PagInicial_2.getText().isEmpty()
+                || PagInicial_1.getText().isEmpty() && !PagInicial_2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Preencha os campos anteriores.");
+            PagFinal_1.setText("");
+        }
+    }//GEN-LAST:event_PagFinal_1FocusLost
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        pdf1_Text.setText("");
+        saida_Text.setText("");
+        PagInicial_1.setText("");
+        PagInicial_2.setText("");
+        PagFinal_1.setText("");
+        PagFinal_2.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -340,20 +395,21 @@ public class PDF_Viewer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Split_PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Split_PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Split_PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Split_PDF_Viewer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PDF_Viewer().setVisible(true);
+                new Split_PDF_Viewer().setVisible(true);
             }
         });
     }
@@ -380,6 +436,7 @@ public class PDF_Viewer extends javax.swing.JFrame {
     private javax.swing.JButton Procurar1;
     private javax.swing.JButton Procurar_Saida;
     public javax.swing.JButton VER;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
