@@ -3,25 +3,17 @@ package Tela;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
 import cod.concatPDFs;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
 import java.awt.Toolkit;
 import java.util.Vector;
-import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import org.icepdf.ri.common.ComponentKeyBinding;
-import org.icepdf.ri.common.SwingController;
-import org.icepdf.ri.common.SwingViewBuilder;
 
 /**
  *
